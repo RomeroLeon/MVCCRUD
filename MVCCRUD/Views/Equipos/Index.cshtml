@@ -1,0 +1,41 @@
+﻿@model IEnumerable<MVCCRUD.Models.Equipo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreMarca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estados)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreMarca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estados)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdMarcas">Edit</a> |
+                    <a asp-action="Details" class="btn btn-dark" asp-route-id="@item.IdMarcas">Details</a> |
+                    <a asp-action="Delete" class="btn btn-secondary" asp-route-id="@item.IdMarcas">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
